@@ -1,0 +1,4 @@
+simplespinner
+=============
+
+jQuery Spinner Plugin
