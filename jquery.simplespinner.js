@@ -1,5 +1,5 @@
 /**
- * Simple Spinner v 0.9.6
+ * Simple Spinner v 0.9.7
  * @author BrianBlocker.com for AliveCity.com
  * @date Dec 20, 2011
  * @tools Aptana Studio 3 / 27" iMac 2011
@@ -24,19 +24,19 @@
 	}
 	
 	$.fn.simplespinner.defaults = {
-		max						: 100,
-		min						: 0,
-		beforeChange	: function( e, ui ){},
-		change				: function( e, ui ){},
-		drag					: function( e, ui ){},
-		stop					: function( e, ui ){},
-		value					: false,
-		step					: 1,
+		max				: 100,
+		min				: 0,
+		beforeChange	: new Function,
+		change			: new Function,
+		drag			: new Function,
+		stop			: new Function,
+		value			: false,
+		step			: 1,
 		slide_step		: 1,
 		shift_step		: 10,
-		width					: 65,
-		append				: '',
-		zero					: false,
+		width			: 65,
+		append			: '',
+		zero			: false,
 		auto_format		: true
 	};
 	
@@ -45,11 +45,11 @@
 		{
 			return this.each( function()
 			{
-				var $interface,
-						$this		= $( this ),
-						$input	= $this,
-						opts		= $.extend( {}, $.fn.simplespinner.defaults, options ),
-						numeric = 0;
+				var $interface
+				,	$this	= $( this )
+				,	$input	= $this
+				,	opts	= $.extend( {}, $.fn.simplespinner.defaults, options )
+				,	numeric = 0;
 				
 				if( ! $this.get( 0 ).nodeName.toLowerCase() == 'input' )
 					return false;
@@ -170,9 +170,9 @@
 	},
 	increment = function( $input, current_values, modifier, e, opts )
 	{
-		var amt = ( e.shiftKey ? opts.shift_step : opts.step ) * modifier,
-				new_numeric_value = current_values.numeric + amt,
-				new_values = { numeric : 0, value : '' };
+		var amt = ( e.shiftKey ? opts.shift_step : opts.step ) * modifier
+		,	new_numeric_value = current_values.numeric + amt
+		,	new_values = { numeric : 0, value : '' };
 				
 		if( new_numeric_value < opts.min )
 			new_numeric_value = opts.min;
